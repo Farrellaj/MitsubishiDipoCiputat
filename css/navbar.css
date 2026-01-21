@@ -1,0 +1,179 @@
+/* navbar.css - CSS khusus untuk navbar */
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-right: 12px;
+}
+
+.logo-text h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.logo-text p {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.navbar-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links {
+    display: flex;
+    list-style: none;
+    margin: 0 30px 0 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    margin: 0 8px;
+}
+
+.navbar-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+}
+
+.navbar-links a:hover {
+    background-color: rgba(230, 0, 18, 0.1);
+    color: var(--primary);
+}
+
+.navbar-links a.active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .navbar-links {
+        margin-right: 20px;
+    }
+    
+    .navbar-links li {
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+    
+    .navbar-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+    }
+    
+    .navbar-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+    
+    .navbar-links li {
+        margin: 5px 0;
+        width: 100%;
+    }
+    
+    .navbar-links a {
+        display: block;
+        padding: 12px 15px;
+        width: 100%;
+    }
+    
+    .navbar-menu .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Sticky navbar effect */
+.navbar.sticky {
+    animation: slideDown 0.3s;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
